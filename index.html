@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23526CB1' width='32' height='32' rx='6'/%3E%3Cpath fill='%2350BFA5' d='M6 20c2-6 6-9 10-9 2 0 3 1 4 1 3 0 5-3 7-3-1 4-4 6-7 6-2 0-3-1-4-1-2 0-4 2-5 5H6z'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Outfit:wght@380;480;580&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Noto+Sans:wght@400;500;600&family=Noto+Serif:wght@600;700&family=Outfit:wght@380;480;580&display=swap" rel="stylesheet">
   <style>
     :root {
       --blue: #526CB1;
@@ -31,7 +31,7 @@
       background:
         radial-gradient(1200px 500px at 100% -10%, rgba(232, 196, 222, 0.45), transparent 50%),
         var(--paper);
-      font-family: Outfit, system-ui, sans-serif;
+      font-family: Outfit, "Noto Sans", system-ui, sans-serif;
       font-weight: 380;
       line-height: 1.45;
     }
@@ -61,8 +61,10 @@
       font-weight: 580;
     }
     .brand small { display: block; letter-spacing: 0.22em; opacity: 0.8; font-size: 10px; }
+    html[lang="ka"] .brand,
+    html[lang="ka"] .brand small { letter-spacing: 0; text-transform: none; }
     .wordmark {
-      font-family: Fraunces, Georgia, serif;
+      font-family: Fraunces, "Noto Serif", Georgia, serif;
       font-weight: 680;
       font-size: clamp(40px, 6vw, 72px);
       line-height: 0.92;
@@ -91,7 +93,7 @@
       padding: 32px 24px 36px;
     }
     .unofficial h2 {
-      font-family: Fraunces, Georgia, serif;
+      font-family: Fraunces, "Noto Serif", Georgia, serif;
       font-weight: 680;
       font-size: clamp(40px, 7vw, 76px);
       line-height: 0.95;
@@ -104,13 +106,20 @@
       line-height: 1.25;
       max-width: 22em;
     }
-    .unofficial a {
+    .unofficial a.ig-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       color: var(--mint);
       font-size: clamp(26px, 3.4vw, 40px);
       font-weight: 580;
+      text-decoration: none;
+    }
+    .unofficial a.ig-link span {
       text-decoration: underline;
       text-underline-offset: 6px;
     }
+    .unofficial a.ig-link svg { width: 0.85em; height: 0.85em; flex: none; }
     .unofficial .en {
       margin-top: 18px;
       margin-bottom: 0;
@@ -160,6 +169,24 @@
       color: var(--ink);
     }
     .search:focus { outline: 2px solid var(--mint); border-color: transparent; }
+    .langs {
+      display: flex;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      overflow: hidden;
+      flex: none;
+    }
+    .langs button {
+      border: 0;
+      background: transparent;
+      font: inherit;
+      font-weight: 580;
+      padding: 8px 12px;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .langs button.active { background: var(--blue); color: white; }
     main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 80px; }
     .day { margin: 0 0 42px; scroll-margin-top: 76px; }
     .day-head {
@@ -169,7 +196,7 @@
       margin-bottom: 16px;
     }
     .day-head h2 {
-      font-family: Fraunces, Georgia, serif;
+      font-family: Fraunces, "Noto Serif", Georgia, serif;
       font-size: clamp(32px, 4vw, 46px);
       margin: 0;
       letter-spacing: -0.03em;
@@ -194,7 +221,7 @@
       margin-bottom: 22px;
     }
     .time {
-      font-family: Fraunces, Georgia, serif;
+      font-family: Fraunces, "Noto Serif", Georgia, serif;
       font-weight: 680;
       font-size: 22px;
       padding-top: 8px;
@@ -251,7 +278,7 @@
       gap: 14px;
     }
     .film h3 {
-      font-family: Fraunces, Georgia, serif;
+      font-family: Fraunces, "Noto Serif", Georgia, serif;
       font-size: 17px;
       line-height: 1.15;
       margin: 8px 0 4px;
@@ -294,10 +321,10 @@
           <svg width="46" height="28" viewBox="0 0 46 28" aria-hidden="true">
             <path fill="#50BFA5" d="M2 20c3-1 5-4 7-8 2-3 4-4 7-4 2 0 3 1 5 1 4 0 7-4 11-5-1 3-3 5-6 6 2 0 4 1 5 3-3 1-5 0-7-1-1 2-3 4-6 5 2 2 5 3 8 3-4 2-8 2-12 0-2 2-6 3-9 2 1-1 2-1 3-2-3 0-5 0-6 0z"/>
           </svg>
-          <div>Kutaisi International<small>Short Film Festival</small></div>
+          <div><span id="brand">Kutaisi International</span><small id="brand-sub">Short Film Festival</small></div>
         </div>
-        <h1 class="wordmark">Festival<br>Programme</h1>
-        <p class="lede">Seven days, three screening halls, English titles. Every film has its own poster.</p>
+        <h1 class="wordmark"><span id="wm1">Festival</span><br><span id="wm2">Programme</span></h1>
+        <p class="lede" id="lede">Seven days, three screening halls. Every film has its own poster.</p>
       </div>
       <div>
         <div class="date-pill">16–22.10 2026</div>
@@ -316,25 +343,37 @@
   </header>
   <section class="unofficial">
     <div class="unofficial-inner">
-      <h2>Это неофициальная страничка</h2>
-      <p>Подробности и актуальная информация — у фестиваля в Instagram.</p>
-      <a href="https://www.instagram.com/kutaisishorts/">instagram.com/kutaisishorts</a>
-      <p class="en">Unofficial page. For details and the latest information, check the festival Instagram.</p>
+      <h2 id="unofficial-title">Это неофициальная страничка</h2>
+      <p id="unofficial-body">Подробности и актуальная информация — у фестиваля в Instagram.</p>
+      <a class="ig-link" href="https://www.instagram.com/kutaisishorts/">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+        </svg>
+        <span>instagram.com/kutaisishorts</span>
+      </a>
     </div>
   </section>
   <nav class="bar">
     <div class="bar-inner">
       <div class="days" id="days"></div>
+      <div class="langs" id="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="ka">ქარ</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="ru">RU</button>
+      </div>
       <input class="search" id="q" type="search" placeholder="Search title or director" aria-label="Search the programme">
     </div>
   </nav>
   <main id="programme"></main>
   <p class="empty" id="empty">Nothing matches that search.</p>
   <footer class="foot">
-    <p>Screening Hall 4 is left open in the printed programme — no titles are scheduled there.</p>
-    <p>Watermelon, Until You Answer Me, and Kute are printed only in Georgian. The English titles here are translations of those lines.</p>
+    <p id="foot1">Screening Hall 4 is left open in the printed programme — no titles are scheduled there.</p>
+    <p id="foot2">Watermelon, Until You Answer Me and Kute are printed only in Georgian. Those English titles are translations.</p>
   </footer>
   <script src="program.js"></script>
+  <script src="i18n.js"></script>
   <script>
     const PALETTES = [
       ["#526CB1", "#E8C4DE", "#F7F3EA"],
@@ -380,24 +419,50 @@
       return `<path d="M70 130a40 40 0 1 1 60 20 28 28 0 1 0-60-20z" fill="${ink}"/>`;
     }
 
+    const LANGS = ["ka", "en", "ru"];
+    let lang = localStorage.getItem("kisff-lang");
+    if (!LANGS.includes(lang)) {
+      const nav = (navigator.language || "en").toLowerCase();
+      lang = nav.startsWith("ka") ? "ka" : nav.startsWith("ru") ? "ru" : "en";
+    }
+    const ui = () => window.UI[lang];
+    function tr(s) {
+      if (!s || lang === "en") return s || "";
+      const hit = window.PHRASE[s];
+      if (hit) return lang === "ka" ? hit[0] : hit[1];
+      if (s.includes(", ")) return s.split(", ").map(tr).join(", ");
+      return s;
+    }
+    function forms(s) {
+      if (!s) return "";
+      const hit = window.PHRASE[s];
+      if (hit) return [s, hit[0], hit[1]].join(" ");
+      if (s.includes(", ")) return s.split(", ").map(forms).join(" ");
+      return s;
+    }
+    function trHall(name) {
+      return name.replace(/^Hall /, ui().hall + " ");
+    }
+
     function posterSVG(film) {
+      const shown = tr(film.title);
       const h = hash(film.title);
       const [bg, ink, paper] = PALETTES[h % PALETTES.length];
       const ground = film.event ? paper : bg;
       const draw = film.event ? ink : paper;
-      const lines = wrap(film.title, film.title.length > 36 ? 13 : 11);
+      const lines = wrap(shown, shown.length > 36 ? 13 : 11);
       const longest = Math.max(...lines.map((line) => line.length));
       let size = lines.length > 4 ? 14 : lines.length > 3 ? 16 : 20;
       if (longest > 12) size = Math.min(size, 15);
       if (longest > 16) size = Math.min(size, 12);
       const start = 286 - lines.length * (size + 3);
       const text = lines.map((ln, i) => `<tspan x="16" dy="${i === 0 ? 0 : size + 3}">${escapeXml(ln)}</tspan>`).join("");
-      const label = film.event ? "EVENT" : "KISFF";
-      return `<svg viewBox="0 0 200 300" role="img" aria-label="${escapeXml(film.title)}">
+      const label = film.event ? ui().event : "KISFF";
+      return `<svg viewBox="0 0 200 300" role="img" aria-label="${escapeXml(shown)}">
         <rect width="200" height="300" fill="${ground}"/>
         ${motif(h % 6, film.event ? ink : "rgba(255,255,255,0.88)")}
-        <text x="16" y="28" fill="${draw}" font-family="Outfit, sans-serif" font-size="11" letter-spacing="2">${label}</text>
-        <text x="16" y="${start}" fill="${draw}" font-family="Fraunces, Georgia, serif" font-size="${size}" font-weight="680">${text}</text>
+        <text x="16" y="28" fill="${draw}" font-family="Outfit, 'Noto Sans', sans-serif" font-size="11" letter-spacing="2">${escapeXml(label)}</text>
+        <text x="16" y="${start}" fill="${draw}" font-family="Fraunces, 'Noto Serif', Georgia, serif" font-size="${size}" font-weight="680">${text}</text>
       </svg>`;
     }
 
@@ -406,15 +471,15 @@
     }
 
     function metaLine(film) {
-      return [film.country, film.year, film.runtime].filter(Boolean).join(" · ");
+      return [tr(film.country), film.year, film.runtime].filter(Boolean).join(" · ");
     }
 
     function filmBlob(film) {
-      return [film.title, film.director, film.country, film.detail, film.note, film.year, film.runtime].filter(Boolean).join(" ").toLowerCase();
+      return [forms(film.title), forms(film.director), forms(film.country), forms(film.detail), forms(film.note), forms(film.kicker), film.year, film.runtime].filter(Boolean).join(" ").toLowerCase();
     }
     function visibleFilms(hall, q) {
       if (!q) return hall.films;
-      const kick = [hall.hall, hall.kicker, ...(hall.tags || [])].join(" ").toLowerCase();
+      const kick = [forms(hall.hall), forms(hall.kicker), ...(hall.tags || []).map(forms)].join(" ").toLowerCase();
       if (kick.includes(q)) return hall.films;
       return hall.films.filter((film) => filmBlob(film).includes(q));
     }
@@ -438,8 +503,8 @@
         if (!slots) return "";
         return `<section class="day" id="day-${day.n}">
           <div class="day-head">
-            <span class="day-no">Day ${day.n}</span>
-            <h2>${day.weekday} ${day.date}</h2>
+            <span class="day-no">${ui().day} ${day.n}</span>
+            <h2>${tr(day.weekday)} ${day.date}</h2>
           </div>
           ${slots}
         </section>`;
@@ -450,30 +515,56 @@
     function renderHall(hall) {
       const tags = (hall.tags || []).map((t) => {
         const cls = t === "Rescreening" ? "tag rescreen" : t === "+18" ? "tag adult" : "tag";
-        return `<span class="${cls}">${t}</span>`;
+        return `<span class="${cls}">${escapeXml(tr(t))}</span>`;
       }).join("");
       const films = hall.films.map((film) => {
-        const by = film.director ? `<p class="by">${film.event ? film.director : "Dir. " + film.director}</p>` : "";
+        const director = tr(film.director);
+        const by = director ? `<p class="by">${film.event ? escapeXml(director) : escapeXml(ui().dir + " " + director)}</p>` : "";
         const meta = metaLine(film);
-        const note = film.georgianOnly ? `<p class="note">${film.note}</p>` : (film.detail ? `<p class="note">${film.detail}</p>` : (film.note ? `<p class="note">${film.note}</p>` : ""));
+        const extra = film.detail ? tr(film.detail) : (film.georgianOnly && lang !== "ka" ? film.note : (film.note && !film.georgianOnly ? tr(film.note) : ""));
+        const note = extra ? `<p class="note">${escapeXml(extra)}</p>` : "";
         return `<article class="film">
           <div class="poster">${posterSVG(film)}</div>
-          <h3>${film.title}</h3>
+          <h3>${escapeXml(tr(film.title))}</h3>
           ${by}
-          ${meta ? `<p class="meta">${meta}</p>` : ""}
+          ${meta ? `<p class="meta">${escapeXml(meta)}</p>` : ""}
           ${note}
         </article>`;
       }).join("");
       return `<section class="hall">
-        <div class="hall-top"><span class="hall-name">${hall.hall}</span>${tags}</div>
-        ${hall.kicker ? `<p class="kicker">${hall.kicker}</p>` : ""}
+        <div class="hall-top"><span class="hall-name">${escapeXml(trHall(hall.hall))}</span>${tags}</div>
+        ${hall.kicker ? `<p class="kicker">${escapeXml(tr(hall.kicker))}</p>` : ""}
         <div class="films">${films}</div>
       </section>`;
     }
 
+    function paintChrome() {
+      const copy = ui();
+      document.documentElement.lang = lang;
+      document.title = copy.title;
+      document.getElementById("brand").textContent = copy.brand;
+      document.getElementById("brand-sub").textContent = copy.brandSub;
+      document.getElementById("wm1").textContent = copy.wm1;
+      document.getElementById("wm2").textContent = copy.wm2;
+      document.getElementById("lede").textContent = copy.lede;
+      document.getElementById("unofficial-title").textContent = copy.unofficialTitle;
+      document.getElementById("unofficial-body").textContent = copy.unofficialBody;
+      document.getElementById("foot1").textContent = copy.footer1;
+      document.getElementById("foot2").textContent = copy.footer2;
+      const search = document.getElementById("q");
+      search.placeholder = copy.search;
+      search.setAttribute("aria-label", copy.searchLabel);
+      document.querySelectorAll("#langs button").forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+      document.querySelectorAll("#days a span").forEach((span, i) => {
+        span.textContent = copy.dayShort[i];
+      });
+    }
+
     const days = document.getElementById("days");
-    days.innerHTML = window.PROGRAM.map((d) =>
-      `<a href="#day-${d.n}"><strong>${d.date}</strong><span>${d.weekday.slice(0, 3)}</span></a>`
+    days.innerHTML = window.PROGRAM.map((d, i) =>
+      `<a href="#day-${d.n}"><strong>${d.date}</strong><span>${ui().dayShort[i]}</span></a>`
     ).join("");
 
     const links = [...days.querySelectorAll("a")];
@@ -491,6 +582,16 @@
       render(e.target.value);
       mark();
     });
+    document.getElementById("langs").addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      lang = button.dataset.lang;
+      localStorage.setItem("kisff-lang", lang);
+      paintChrome();
+      render(document.getElementById("q").value);
+      mark();
+    });
+    paintChrome();
     render("");
     mark();
     document.addEventListener("scroll", mark, { passive: true });
