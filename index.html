@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Festival Programme — Kutaisi International Short Film Festival 2026</title>
+  <title>ფესტივალის პროგრამა — ქუთაისის საერთაშორისო მოკლემეტრაჟიანი კინოფესტივალი 2026</title>
   <meta name="description" content="Programme of the Kutaisi International Short Film Festival, 16–22 October 2026.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23526CB1' width='32' height='32' rx='6'/%3E%3Cpath fill='%2350BFA5' d='M6 20c2-6 6-9 10-9 2 0 3 1 4 1 3 0 5-3 7-3-1 4-4 6-7 6-2 0-3-1-4-1-2 0-4 2-5 5H6z'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -317,10 +317,10 @@
           <svg width="46" height="28" viewBox="0 0 46 28" aria-hidden="true">
             <path fill="#50BFA5" d="M2 20c3-1 5-4 7-8 2-3 4-4 7-4 2 0 3 1 5 1 4 0 7-4 11-5-1 3-3 5-6 6 2 0 4 1 5 3-3 1-5 0-7-1-1 2-3 4-6 5 2 2 5 3 8 3-4 2-8 2-12 0-2 2-6 3-9 2 1-1 2-1 3-2-3 0-5 0-6 0z"/>
           </svg>
-          <div><span id="brand">Kutaisi International</span><small id="brand-sub">Short Film Festival</small></div>
+          <div><span id="brand">ქუთაისის საერთაშორისო</span><small id="brand-sub">მოკლემეტრაჟიანი კინოფესტივალი</small></div>
         </div>
-        <h1 class="wordmark"><span id="wm1">Festival</span><br><span id="wm2">Programme</span></h1>
-        <p class="lede" id="lede">Seven days, three screening halls.</p>
+        <h1 class="wordmark"><span id="wm1">ფესტივალის</span><br><span id="wm2">პროგრამა</span></h1>
+        <p class="lede" id="lede">შვიდი დღე, სამი დარბაზი.</p>
       </div>
       <div>
         <div class="date-pill">16–22.10 2026</div>
@@ -339,8 +339,8 @@
   </header>
   <section class="unofficial">
     <div class="unofficial-inner">
-      <h2 id="unofficial-title">Это неофициальная страничка</h2>
-      <p id="unofficial-body">Подробности и актуальная информация — у фестиваля в Instagram.</p>
+      <h2 id="unofficial-title">ეს არაოფიციალური გვერდია</h2>
+      <p id="unofficial-body">დეტალები და აქტუალური ინფორმაცია ფესტივალის Instagram-ზეა.</p>
       <a class="ig-link" href="https://www.instagram.com/kutaisishorts/">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -355,28 +355,25 @@
     <div class="bar-inner">
       <div class="days" id="days"></div>
       <div class="langs" id="langs" role="group" aria-label="Language">
-        <button type="button" data-lang="ka">ქარ</button>
+        <button type="button" data-lang="ka" class="active">ქარ</button>
         <button type="button" data-lang="en">EN</button>
         <button type="button" data-lang="ru">RU</button>
       </div>
-      <input class="search" id="q" type="search" placeholder="Search title or director" aria-label="Search the programme">
+      <input class="search" id="q" type="search" placeholder="მოძებნე სახელწოდება ან რეჟისორი" aria-label="პროგრამის ძებნა">
     </div>
   </nav>
   <main id="programme"></main>
-  <p class="empty" id="empty">Nothing matches that search.</p>
+  <p class="empty" id="empty">ვერაფერი მოიძებნა.</p>
   <footer class="foot">
-    <p id="foot1">Screening Hall 4 is left open in the printed programme — no titles are scheduled there.</p>
-    <p id="foot2">Watermelon, Until You Answer Me and Kute are printed only in Georgian. Those English titles are translations.</p>
+    <p id="foot1">დარბაზი 4 ბეჭდურ პროგრამაში ცარიელია — სეანსები იქ არ წერია.</p>
+    <p id="foot2">«საზამთრო», «სანამ არ მიპასუხებ» და «კუტე» ბეჭდურ პროგრამაში მხოლოდ ქართულადაა.</p>
   </footer>
   <script src="program.js"></script>
   <script src="i18n.js"></script>
   <script>
     const LANGS = ["ka", "en", "ru"];
     let lang = localStorage.getItem("kisff-lang");
-    if (!LANGS.includes(lang)) {
-      const nav = (navigator.language || "en").toLowerCase();
-      lang = nav.startsWith("ka") ? "ka" : nav.startsWith("ru") ? "ru" : "en";
-    }
+    if (!LANGS.includes(lang)) lang = "ka";
     const ui = () => window.UI[lang];
     function tr(s) {
       if (!s || lang === "en") return s || "";
