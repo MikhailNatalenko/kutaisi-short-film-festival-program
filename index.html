@@ -279,10 +279,11 @@
       font-family: Fraunces, "Noto Serif", Georgia, serif;
       font-size: 18px;
       line-height: 1.2;
-      margin: 0 0 2px;
+      margin: 0;
       font-weight: 680;
       letter-spacing: -0.02em;
     }
+    .en-title { margin: 1px 0 2px; font-size: 14px; color: var(--muted); }
     .by, .meta, .note { margin: 0; font-size: 13px; color: var(--muted); }
     .note { font-style: italic; }
     .empty {
@@ -448,10 +449,14 @@
         const director = tr(film.director);
         const by = director ? `<p class="by">${film.event ? escapeXml(director) : escapeXml(ui().dir + " " + director)}</p>` : "";
         const meta = metaLine(film);
-        const extra = film.detail ? tr(film.detail) : (film.georgianOnly && lang !== "ka" ? film.note : (film.note && !film.georgianOnly ? tr(film.note) : ""));
+        const extra = film.detail ? tr(film.detail) : (film.note && !film.georgianOnly ? tr(film.note) : "");
         const note = extra ? `<p class="note">${escapeXml(extra)}</p>` : "";
+        const en = film.title;
+        const ka = (window.PHRASE[en] && window.PHRASE[en][0]) || en;
+        const alt = ka.toLowerCase() === en.toLowerCase() ? "" : `<p class="en-title">${escapeXml(en)}</p>`;
         return `<article class="film">
-          <h3>${escapeXml(tr(film.title))}</h3>
+          <h3>${escapeXml(ka)}</h3>
+          ${alt}
           ${by}
           ${meta ? `<p class="meta">${escapeXml(meta)}</p>` : ""}
           ${note}
