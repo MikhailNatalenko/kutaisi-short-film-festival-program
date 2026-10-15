@@ -272,23 +272,19 @@
       font-size: 15px;
       color: var(--muted);
     }
-    .films {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-      gap: 14px;
-    }
+    .films { display: flex; flex-direction: column; }
+    .film { padding: 10px 0; }
+    .film + .film { border-top: 1px solid var(--line); }
     .film h3 {
       font-family: Fraunces, "Noto Serif", Georgia, serif;
-      font-size: 17px;
-      line-height: 1.15;
-      margin: 8px 0 4px;
+      font-size: 18px;
+      line-height: 1.2;
+      margin: 0 0 2px;
       font-weight: 680;
       letter-spacing: -0.02em;
     }
     .by, .meta, .note { margin: 0; font-size: 13px; color: var(--muted); }
     .note { font-style: italic; }
-    .poster { width: 100%; aspect-ratio: 2 / 3; border-radius: 12px; overflow: hidden; }
-    .poster svg { width: 100%; height: 100%; display: block; }
     .empty {
       display: none;
       padding: 28px;
@@ -375,50 +371,6 @@
   <script src="program.js"></script>
   <script src="i18n.js"></script>
   <script>
-    const PALETTES = [
-      ["#526CB1", "#E8C4DE", "#F7F3EA"],
-      ["#1F6B5C", "#50BFA5", "#F4FBF8"],
-      ["#3E2A66", "#E8C4DE", "#F6F3FB"],
-      ["#8C3A2F", "#F0C14E", "#FBF6EE"],
-      ["#243044", "#7EB6D9", "#F4F7FB"],
-      ["#5A2748", "#E8C4DE", "#FBF7F8"],
-      ["#2C3E2A", "#D5E07A", "#F7F6EF"],
-      ["#14324A", "#50BFA5", "#F3F7F6"]
-    ];
-
-    function hash(s) {
-      let h = 2166136261;
-      for (let i = 0; i < s.length; i++) {
-        h ^= s.charCodeAt(i);
-        h = Math.imul(h, 16777619);
-      }
-      return h >>> 0;
-    }
-
-    function wrap(title, max) {
-      const words = title.toUpperCase().split(/\s+/);
-      const lines = [];
-      let line = "";
-      words.forEach((w) => {
-        const next = line ? line + " " + w : w;
-        if (next.length > max && line) {
-          lines.push(line);
-          line = w;
-        } else line = next;
-      });
-      if (line) lines.push(line);
-      return lines.slice(0, 6);
-    }
-
-    function motif(kind, ink) {
-      if (kind === 0) return `<circle cx="100" cy="118" r="54" fill="none" stroke="${ink}" stroke-width="8"/><circle cx="100" cy="118" r="18" fill="${ink}"/>`;
-      if (kind === 1) return `<polygon points="100,58 114,96 154,100 124,126 132,166 100,144 68,166 76,126 46,100 86,96" fill="${ink}"/>`;
-      if (kind === 2) return `<path d="M40 176 V108 Q100 36 160 108 V176" fill="none" stroke="${ink}" stroke-width="8"/><circle cx="100" cy="112" r="10" fill="${ink}"/>`;
-      if (kind === 3) return `<g stroke="${ink}" stroke-width="10">${[0,1,2,3,4].map((i) => `<line x1="${20+i*18}" y1="70" x2="${70+i*18}" y2="180"/>`).join("")}</g>`;
-      if (kind === 4) return `<rect x="58" y="78" width="84" height="84" transform="rotate(45 100 120)" fill="none" stroke="${ink}" stroke-width="8"/>`;
-      return `<path d="M70 130a40 40 0 1 1 60 20 28 28 0 1 0-60-20z" fill="${ink}"/>`;
-    }
-
     const LANGS = ["ka", "en", "ru"];
     let lang = localStorage.getItem("kisff-lang");
     if (!LANGS.includes(lang)) {
@@ -442,28 +394,6 @@
     }
     function trHall(name) {
       return name.replace(/^Hall /, ui().hall + " ");
-    }
-
-    function posterSVG(film) {
-      const shown = tr(film.title);
-      const h = hash(film.title);
-      const [bg, ink, paper] = PALETTES[h % PALETTES.length];
-      const ground = film.event ? paper : bg;
-      const draw = film.event ? ink : paper;
-      const lines = wrap(shown, shown.length > 36 ? 13 : 11);
-      const longest = Math.max(...lines.map((line) => line.length));
-      let size = lines.length > 4 ? 14 : lines.length > 3 ? 16 : 20;
-      if (longest > 12) size = Math.min(size, 15);
-      if (longest > 16) size = Math.min(size, 12);
-      const start = 286 - lines.length * (size + 3);
-      const text = lines.map((ln, i) => `<tspan x="16" dy="${i === 0 ? 0 : size + 3}">${escapeXml(ln)}</tspan>`).join("");
-      const label = film.event ? ui().event : "KISFF";
-      return `<svg viewBox="0 0 200 300" role="img" aria-label="${escapeXml(shown)}">
-        <rect width="200" height="300" fill="${ground}"/>
-        ${motif(h % 6, film.event ? ink : "rgba(255,255,255,0.88)")}
-        <text x="16" y="28" fill="${draw}" font-family="Outfit, 'Noto Sans', sans-serif" font-size="11" letter-spacing="2">${escapeXml(label)}</text>
-        <text x="16" y="${start}" fill="${draw}" font-family="Fraunces, 'Noto Serif', Georgia, serif" font-size="${size}" font-weight="680">${text}</text>
-      </svg>`;
     }
 
     function escapeXml(s) {
@@ -524,7 +454,6 @@
         const extra = film.detail ? tr(film.detail) : (film.georgianOnly && lang !== "ka" ? film.note : (film.note && !film.georgianOnly ? tr(film.note) : ""));
         const note = extra ? `<p class="note">${escapeXml(extra)}</p>` : "";
         return `<article class="film">
-          <div class="poster">${posterSVG(film)}</div>
           <h3>${escapeXml(tr(film.title))}</h3>
           ${by}
           ${meta ? `<p class="meta">${escapeXml(meta)}</p>` : ""}
