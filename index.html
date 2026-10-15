@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Festival Programme — Kutaisi International Short Film Festival 2026</title>
+  <meta name="description" content="Programme of the Kutaisi International Short Film Festival, 16–22 October 2026. English titles, screening halls, and a poster for every film.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23526CB1' width='32' height='32' rx='6'/%3E%3Cpath fill='%2350BFA5' d='M6 20c2-6 6-9 10-9 2 0 3 1 4 1 3 0 5-3 7-3-1 4-4 6-7 6-2 0-3-1-4-1-2 0-4 2-5 5H6z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Outfit:wght@380;480;580&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #526CB1;
+      --blue-deep: #3c5496;
+      --mint: #50BFA5;
+      --mint-deep: #1d6b5c;
+      --pink: #E8C4DE;
+      --ink: #1b2330;
+      --muted: #5c6672;
+      --line: rgba(27, 35, 48, 0.12);
+      --paper: #f3efe6;
+      --card: #fffdf8;
+      --shadow: 0 16px 40px rgba(40, 52, 90, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 100% -10%, rgba(232, 196, 222, 0.45), transparent 50%),
+        var(--paper);
+      font-family: Outfit, system-ui, sans-serif;
+      font-weight: 380;
+      line-height: 1.45;
+    }
+    a { color: inherit; }
+    .hero {
+      background: var(--blue);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 24px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px 32px;
+      align-items: end;
+    }
+    .brand {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 580;
+    }
+    .brand small { display: block; letter-spacing: 0.22em; opacity: 0.8; font-size: 10px; }
+    .wordmark {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 680;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      margin: 18px 0 10px;
+    }
+    .lede { margin: 0; max-width: 46ch; color: rgba(255,255,255,0.86); font-size: 17px; }
+    .date-pill {
+      justify-self: end;
+      background: var(--mint);
+      color: #12382f;
+      font-weight: 580;
+      letter-spacing: 0.08em;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+    }
+    .dino { width: min(220px, 40vw); height: auto; justify-self: end; }
+    .bar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(243, 239, 230, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .bar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .days { display: flex; gap: 8px; overflow-x: auto; flex: 1; scrollbar-width: none; }
+    .days::-webkit-scrollbar { display: none; }
+    .days a {
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: 580;
+    }
+    .days a strong { font-weight: 580; }
+    .days a span { color: var(--muted); font-weight: 380; margin-left: 6px; }
+    .days a:hover, .days a.active { background: var(--blue); color: white; border-color: var(--blue); }
+    .days a.active span, .days a:hover span { color: rgba(255,255,255,0.75); }
+    .search {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font: inherit;
+      min-width: 180px;
+      color: var(--ink);
+    }
+    .search:focus { outline: 2px solid var(--mint); border-color: transparent; }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 80px; }
+    .day { margin: 0 0 42px; scroll-margin-top: 76px; }
+    .day-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .day-head h2 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(32px, 4vw, 46px);
+      margin: 0;
+      letter-spacing: -0.03em;
+      font-weight: 680;
+    }
+    .day-no {
+      background: var(--blue);
+      color: white;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 580;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .day:nth-child(3n+2) .day-no { background: var(--mint-deep); }
+    .day:nth-child(3n) .day-no { background: #8a4d73; }
+    .slot {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .time {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 680;
+      font-size: 22px;
+      padding-top: 8px;
+      position: sticky;
+      top: 78px;
+    }
+    .halls {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+    }
+    .hall {
+      background: var(--card);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+    .hall-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .hall-name {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 580;
+      color: var(--blue-deep);
+    }
+    .tag {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 580;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: var(--pink);
+      color: #5a2748;
+    }
+    .tag.rescreen { background: #e7eef8; color: var(--blue-deep); }
+    .tag.adult { background: #1b2330; color: white; }
+    .kicker {
+      margin: 0 0 12px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .films {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+      gap: 14px;
+    }
+    .film h3 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: 17px;
+      line-height: 1.15;
+      margin: 8px 0 4px;
+      font-weight: 680;
+      letter-spacing: -0.02em;
+    }
+    .by, .meta, .note { margin: 0; font-size: 13px; color: var(--muted); }
+    .note { font-style: italic; }
+    .poster { width: 100%; aspect-ratio: 2 / 3; border-radius: 12px; overflow: hidden; }
+    .poster svg { width: 100%; height: 100%; display: block; }
+    .empty {
+      display: none;
+      padding: 28px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .foot {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .foot p { margin: 0 0 8px; }
+    @media (max-width: 720px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .date-pill, .dino { justify-self: start; }
+      .bar-inner { flex-wrap: wrap; }
+      .search { width: 100%; }
+      .slot { grid-template-columns: 1fr; gap: 6px; }
+      .time { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="brand">
+          <svg width="46" height="28" viewBox="0 0 46 28" aria-hidden="true">
+            <path fill="#50BFA5" d="M2 20c3-1 5-4 7-8 2-3 4-4 7-4 2 0 3 1 5 1 4 0 7-4 11-5-1 3-3 5-6 6 2 0 4 1 5 3-3 1-5 0-7-1-1 2-3 4-6 5 2 2 5 3 8 3-4 2-8 2-12 0-2 2-6 3-9 2 1-1 2-1 3-2-3 0-5 0-6 0z"/>
+          </svg>
+          <div>Kutaisi International<small>Short Film Festival</small></div>
+        </div>
+        <h1 class="wordmark">Festival<br>Programme</h1>
+        <p class="lede">Seven days, three screening halls, English titles. Every film has its own poster.</p>
+      </div>
+      <div>
+        <div class="date-pill">16–22.10 2026</div>
+        <svg class="dino" viewBox="0 0 190 110" aria-hidden="true">
+          <g fill="none" stroke="#E8C4DE" stroke-linecap="round">
+            <path d="M8 64c16-14 30 8 46 6" stroke-width="8"/>
+            <ellipse cx="88" cy="70" rx="38" ry="20" fill="#E8C4DE" stroke="none"/>
+            <path d="M64 84v16M80 86v14M104 82v16" stroke-width="7"/>
+            <path d="M114 60c16-18 30-32 46-40" stroke-width="11"/>
+            <ellipse cx="168" cy="18" rx="14" ry="9" fill="#E8C4DE" stroke="none"/>
+          </g>
+          <circle cx="176" cy="16" r="2.2" fill="#3c5496"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+  <nav class="bar">
+    <div class="bar-inner">
+      <div class="days" id="days"></div>
+      <input class="search" id="q" type="search" placeholder="Search title or director" aria-label="Search the programme">
+    </div>
+  </nav>
+  <main id="programme"></main>
+  <p class="empty" id="empty">Nothing matches that search.</p>
+  <footer class="foot">
+    <p>Screening Hall 4 is left open in the printed programme — no titles are scheduled there.</p>
+    <p>Watermelon, Until You Answer Me, and Kute are printed only in Georgian. The English titles here are translations of those lines.</p>
+  </footer>
+  <script src="program.js"></script>
+  <script>
+    const PALETTES = [
+      ["#526CB1", "#E8C4DE", "#F7F3EA"],
+      ["#1F6B5C", "#50BFA5", "#F4FBF8"],
+      ["#3E2A66", "#E8C4DE", "#F6F3FB"],
+      ["#8C3A2F", "#F0C14E", "#FBF6EE"],
+      ["#243044", "#7EB6D9", "#F4F7FB"],
+      ["#5A2748", "#E8C4DE", "#FBF7F8"],
+      ["#2C3E2A", "#D5E07A", "#F7F6EF"],
+      ["#14324A", "#50BFA5", "#F3F7F6"]
+    ];
+
+    function hash(s) {
+      let h = 2166136261;
+      for (let i = 0; i < s.length; i++) {
+        h ^= s.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function wrap(title, max) {
+      const words = title.toUpperCase().split(/\s+/);
+      const lines = [];
+      let line = "";
+      words.forEach((w) => {
+        const next = line ? line + " " + w : w;
+        if (next.length > max && line) {
+          lines.push(line);
+          line = w;
+        } else line = next;
+      });
+      if (line) lines.push(line);
+      return lines.slice(0, 6);
+    }
+
+    function motif(kind, ink) {
+      if (kind === 0) return `<circle cx="100" cy="118" r="54" fill="none" stroke="${ink}" stroke-width="8"/><circle cx="100" cy="118" r="18" fill="${ink}"/>`;
+      if (kind === 1) return `<polygon points="100,58 114,96 154,100 124,126 132,166 100,144 68,166 76,126 46,100 86,96" fill="${ink}"/>`;
+      if (kind === 2) return `<path d="M40 176 V108 Q100 36 160 108 V176" fill="none" stroke="${ink}" stroke-width="8"/><circle cx="100" cy="112" r="10" fill="${ink}"/>`;
+      if (kind === 3) return `<g stroke="${ink}" stroke-width="10">${[0,1,2,3,4].map((i) => `<line x1="${20+i*18}" y1="70" x2="${70+i*18}" y2="180"/>`).join("")}</g>`;
+      if (kind === 4) return `<rect x="58" y="78" width="84" height="84" transform="rotate(45 100 120)" fill="none" stroke="${ink}" stroke-width="8"/>`;
+      return `<path d="M70 130a40 40 0 1 1 60 20 28 28 0 1 0-60-20z" fill="${ink}"/>`;
+    }
+
+    function posterSVG(film) {
+      const h = hash(film.title);
+      const [bg, ink, paper] = PALETTES[h % PALETTES.length];
+      const ground = film.event ? paper : bg;
+      const draw = film.event ? ink : paper;
+      const lines = wrap(film.title, film.title.length > 36 ? 13 : 11);
+      const longest = Math.max(...lines.map((line) => line.length));
+      let size = lines.length > 4 ? 14 : lines.length > 3 ? 16 : 20;
+      if (longest > 12) size = Math.min(size, 15);
+      if (longest > 16) size = Math.min(size, 12);
+      const start = 286 - lines.length * (size + 3);
+      const text = lines.map((ln, i) => `<tspan x="16" dy="${i === 0 ? 0 : size + 3}">${escapeXml(ln)}</tspan>`).join("");
+      const label = film.event ? "EVENT" : "KISFF";
+      return `<svg viewBox="0 0 200 300" role="img" aria-label="${escapeXml(film.title)}">
+        <rect width="200" height="300" fill="${ground}"/>
+        ${motif(h % 6, film.event ? ink : "rgba(255,255,255,0.88)")}
+        <text x="16" y="28" fill="${draw}" font-family="Outfit, sans-serif" font-size="11" letter-spacing="2">${label}</text>
+        <text x="16" y="${start}" fill="${draw}" font-family="Fraunces, Georgia, serif" font-size="${size}" font-weight="680">${text}</text>
+      </svg>`;
+    }
+
+    function escapeXml(s) {
+      return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" }[c]));
+    }
+
+    function metaLine(film) {
+      return [film.country, film.year, film.runtime].filter(Boolean).join(" · ");
+    }
+
+    function filmBlob(film) {
+      return [film.title, film.director, film.country, film.detail, film.note, film.year, film.runtime].filter(Boolean).join(" ").toLowerCase();
+    }
+    function visibleFilms(hall, q) {
+      if (!q) return hall.films;
+      const kick = [hall.hall, hall.kicker, ...(hall.tags || [])].join(" ").toLowerCase();
+      if (kick.includes(q)) return hall.films;
+      return hall.films.filter((film) => filmBlob(film).includes(q));
+    }
+
+    function render(q) {
+      const root = document.getElementById("programme");
+      const query = q.trim().toLowerCase();
+      let shown = 0;
+      root.innerHTML = window.PROGRAM.map((day) => {
+        const slots = day.slots.map((slot) => {
+          const halls = slot.halls
+            .map((hall) => ({ ...hall, films: visibleFilms(hall, query) }))
+            .filter((hall) => hall.films.length);
+          if (!halls.length) return "";
+          shown++;
+          return `<div class="slot">
+            <div class="time">${slot.time}</div>
+            <div class="halls">${halls.map(renderHall).join("")}</div>
+          </div>`;
+        }).join("");
+        if (!slots) return "";
+        return `<section class="day" id="day-${day.n}">
+          <div class="day-head">
+            <span class="day-no">Day ${day.n}</span>
+            <h2>${day.weekday} ${day.date}</h2>
+          </div>
+          ${slots}
+        </section>`;
+      }).join("");
+      document.getElementById("empty").style.display = shown ? "none" : "block";
+    }
+
+    function renderHall(hall) {
+      const tags = (hall.tags || []).map((t) => {
+        const cls = t === "Rescreening" ? "tag rescreen" : t === "+18" ? "tag adult" : "tag";
+        return `<span class="${cls}">${t}</span>`;
+      }).join("");
+      const films = hall.films.map((film) => {
+        const by = film.director ? `<p class="by">${film.event ? film.director : "Dir. " + film.director}</p>` : "";
+        const meta = metaLine(film);
+        const note = film.georgianOnly ? `<p class="note">${film.note}</p>` : (film.detail ? `<p class="note">${film.detail}</p>` : (film.note ? `<p class="note">${film.note}</p>` : ""));
+        return `<article class="film">
+          <div class="poster">${posterSVG(film)}</div>
+          <h3>${film.title}</h3>
+          ${by}
+          ${meta ? `<p class="meta">${meta}</p>` : ""}
+          ${note}
+        </article>`;
+      }).join("");
+      return `<section class="hall">
+        <div class="hall-top"><span class="hall-name">${hall.hall}</span>${tags}</div>
+        ${hall.kicker ? `<p class="kicker">${hall.kicker}</p>` : ""}
+        <div class="films">${films}</div>
+      </section>`;
+    }
+
+    const days = document.getElementById("days");
+    days.innerHTML = window.PROGRAM.map((d) =>
+      `<a href="#day-${d.n}"><strong>${d.date}</strong><span>${d.weekday.slice(0, 3)}</span></a>`
+    ).join("");
+
+    const links = [...days.querySelectorAll("a")];
+    const mark = () => {
+      const y = window.scrollY + 120;
+      let current = links[0];
+      window.PROGRAM.forEach((d, i) => {
+        const el = document.getElementById("day-" + d.n);
+        if (el && el.offsetTop <= y) current = links[i];
+      });
+      links.forEach((a) => a.classList.toggle("active", a === current));
+    };
+
+    document.getElementById("q").addEventListener("input", (e) => {
+      render(e.target.value);
+      mark();
+    });
+    render("");
+    mark();
+    document.addEventListener("scroll", mark, { passive: true });
+  </script>
+</body>
+</html>
